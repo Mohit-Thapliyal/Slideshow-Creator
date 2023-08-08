@@ -3,11 +3,13 @@ FROM python:3.8-slim
 RUN apt-get update && apt-get install -y libgl1-mesa-glx libglib2.0-0
 WORKDIR /app
 COPY requirements.txt requirements.txt
+RUN python -m venv venv
+ENV PATH="/app/venv/bin:$PATH"
 RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 RUN pip install gunicorn
 EXPOSE 3000
-CMD ["gunicorn", "-b", "0.0.0.0:3000", "app.js"]
+CMD ["gunicorn", "-b", "0.0.0.0:3000", "app:app"]
 
 # # Use the official Python image as the base image
 # FROM python:3.8-slim
