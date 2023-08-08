@@ -1,0 +1,6 @@
+cloudinary
+Flask
+opencv-python
+Pillow
+requests
+python-dotenv
