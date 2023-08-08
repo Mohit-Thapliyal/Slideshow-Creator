@@ -54,7 +54,7 @@ Start the server
 ## Usage/Examples
 
 API endpoint (Post API)
-```json
+```
 http://localhost:3000/create_video
 ```
 
