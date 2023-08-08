@@ -5,8 +5,9 @@ WORKDIR /app
 COPY requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
+RUN pip install gunicorn
 EXPOSE 3000
-CMD python ./app.py
+CMD ["gunicorn", "-b", "0.0.0.0:3000", "app.js"]
 
 # # Use the official Python image as the base image
 # FROM python:3.8-slim
